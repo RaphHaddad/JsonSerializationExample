@@ -42,6 +42,13 @@ namespace JsonSerialization.Examples
             obj = JsonConvert.DeserializeObject<MyClass>(json,jsonSettings); //deserialize object from snake_case_2
 
             Console.WriteLine(obj.ToString());
+
+            //change settings to snake_case
+            jsonSettings.ContractResolver = new SnakeCasePropertyNamesContractResolver();
+
+            obj = JsonConvert.DeserializeObject<MyClass>(json, jsonSettings);//deserialization does not work for all fields
+
+            Console.WriteLine(obj);
         }
     }
 }
