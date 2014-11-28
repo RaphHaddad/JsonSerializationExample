@@ -15,7 +15,8 @@ namespace JsonSerialization.Examples
                 FirstName = "Raph",
                 FirstName1 = "Raph",
                 FirstName_ = "Raph",
-                _FName = "Raph"
+                _FName = "Raph",
+                _FirstName = "Raph"
             };
 
             var jsonSettings = new JsonSerializerSettings
@@ -24,15 +25,23 @@ namespace JsonSerialization.Examples
                 NullValueHandling = NullValueHandling.Ignore
             };
 
-            var json = JsonConvert.SerializeObject(data, jsonSettings);
+            var json = JsonConvert.SerializeObject(data, jsonSettings);//serialize object to snake_case1
 
             Console.WriteLine(json);//without seperated integers
 
+            var obj = JsonConvert.DeserializeObject<MyClass>(json, jsonSettings);//desserialize object from snake_case1
+
+            Console.WriteLine(obj.ToString());
+
             jsonSettings.ContractResolver = new SnakeCaseIntegerSeperatedPropertyNamesContractResolver();
 
-            json = JsonConvert.SerializeObject(data, jsonSettings);
+            json = JsonConvert.SerializeObject(data, jsonSettings);//serialize object to snake_case_2
 
-            Console.WriteLine(json);
+            Console.WriteLine(json);//with seperated integers
+
+            obj = JsonConvert.DeserializeObject<MyClass>(json,jsonSettings); //deserialize object from snake_case_2
+
+            Console.WriteLine(obj.ToString());
         }
     }
 }
