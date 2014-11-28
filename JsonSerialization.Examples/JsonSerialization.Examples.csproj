@@ -36,7 +36,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.6.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json.ContractResolverExtentions">
+    <Reference Include="Newtonsoft.Json.ContractResolverExtentions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Json.NET.ContractResolverExtentions.1.0\lib\net45\Newtonsoft.Json.ContractResolverExtentions.dll</HintPath>
     </Reference>
     <Reference Include="System" />

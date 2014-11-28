@@ -27,6 +27,12 @@ namespace JsonSerialization.Examples
             var json = JsonConvert.SerializeObject(data, jsonSettings);
 
             Console.WriteLine(json);//without seperated integers
+
+            jsonSettings.ContractResolver = new SnakeCaseIntegerSeperatedPropertyNamesContractResolver();
+
+            json = JsonConvert.SerializeObject(data, jsonSettings);
+
+            Console.WriteLine(json);
         }
     }
 }
