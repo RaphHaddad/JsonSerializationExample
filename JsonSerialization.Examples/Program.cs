@@ -39,7 +39,7 @@ namespace JsonSerialization.Examples
             //change settings to camelCase
             jsonSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
 
-            obj = JsonConvert.DeserializeObject<MyClass>(json, jsonSettings);//deserialization does not work
+            obj = JsonConvert.DeserializeObject<MyClass>(json, jsonSettings);//deserialization does not work because var json is using property names snake_case_2
 
         }
     }
